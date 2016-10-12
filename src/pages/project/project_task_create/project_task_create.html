@@ -1,0 +1,156 @@
+<div class="wt-modal new-task pro-info-tem inter-box">
+	<form action="" id="taskformInfo">
+		<div class="form-head">
+			<div class="u-msg-cancel wt-modal-close"></div>
+			<div class="title">{title}</div>
+		</div>
+		<div class="form-bd">
+			<input class="full-w form-line" type="text" placeholder="任务名称" value=""  maxlength="20" data-bind="value:taskDT.ref('name')" />
+			<textarea name="" class="form-line full-w" placeholder="任务描述" data-bind="value:taskDT.ref('description')"></textarea>
+			<div class="full-w form-line">				
+				<div class="half-w pd10" id="startdate">
+					<span class="weak" >计划开始时间</span>
+					<div class="line-cont">
+						<span class="time-pick">
+															<div class='u-datepicker' style="display:inline-block;
+    position: absolute;width: 100%;padding: 0;margin-top: -3px;" u-meta='{"type":"u-date","data":"taskDT","field":"planStartdate"}'>
+						        <input id="psta1" class="u-input" type="text" style="border:none !important" >
+						        <span></span>
+						    </div>
+						</span>
+					
+				</div>
+				</div>
+				<div class="half-w pd10" id="enddate">
+					<span class="weak">计划截止时间</span>
+					<div class="line-cont">
+						<span class="time-pick">
+							<div class='u-datepicker' style="display:inline-block;
+    position: absolute;width: 100%;padding: 0;margin-top: -3px;" u-meta='{"type":"u-date","data":"taskDT","field":"planEnddate"}'>
+						        <input id="pend1" class="u-input" type="text" style="border:none !important" >
+						        <span></span>
+						    </div>
+
+						</span>
+					</div>
+				</div>
+			 </div>			
+			<div class="full-w form-line">
+				<div class="half-w pd10">
+					<span class="weak">执行人</span>
+					<div class="line-cont relative" id="relatives">
+						<!-- ko foreach: {data:taskDT.ref('executorList'),as: 'row'} -->
+						<span class="new">
+						<span class="item" data-bind="text:row.ref('name'),attr:{ 'uid':row.ref('id') }"></span><img src="../../../static/images/close_icon_hn.png" data-bind="click:$parent.delFunc.bind($data,$index()),clickBubble:false"></span>
+
+						<!-- /ko -->						
+						
+						<span class="item add"></span>
+						<div class="mem-add-tab hidden">
+						<input type="text" placeholder="查找成员" name="" id="executors" value="" />
+						<div class="latest-connect">
+							最近联系人
+						</div>
+					<ul class="mem-list" id="ul_executors">
+							<!-- <li class="checked">玉刚</li>
+							<li>宁磊</li>
+							<li>贾爱华</li>
+							<li class="mem-invite-btn hidden">邀请同事</li> -->
+						</ul>
+						</div>
+					</div>
+				</div>
+				<div class="half-w pd10" id="priority">
+						<span class="weak" data="0">优先级</span>
+						<div class="line-cont relative" >
+							<ul class="emer-lvl">
+								<li>
+									<input type="radio" id="emer_lvl_l" name="emer_lvl" checked="checked"/><label for="emer_lvl_l" data=0>普通</label>
+								</li>
+								<li>
+									<input type="radio" id="emer_lvl_m" name="emer_lvl"/><label for="emer_lvl_m" data=1>紧急</label>
+								</li>
+								<li>
+									<input type="radio" id="emer_lvl_h" name="emer_lvl"/><label for="emer_lvl_h" data=2>非常紧急</label>
+								</li>
+							</ul>
+							<ul class="emer-lvl-fileds clearfix border-component hidden">
+								<li>
+									<label for="emer_lvl_l"  class="checked" data=0>
+										普通<i></i>
+									</label>
+								</li>
+								<li>
+									<label for="emer_lvl_m" data=1>
+										紧急<i></i>
+									</label>
+								</li>
+								<li>
+									<label for="emer_lvl_h" data=2>
+										非常紧急<i></i>
+									</label>
+								</li>
+							</ul>
+						</div>	
+						
+				</div>
+			</div>
+			<div class="full-w form-line">
+				<div class="half-w pd10">
+					<span class="weak">附件</span>
+					<div class="line-cont attach">
+						<input type="file" id="local_attach"/><label class="pointer" for="local_attach">点击本地上传文件</label>
+					</div>
+				</div>
+				<div class="half-w pd10">
+					<span class="weak"></span>
+					<div class="line-cont attach pointer">
+						<span>
+							点击云盘上传文件
+						</span>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="form-foot clearfix">
+			<div class="u-msg-ok wt-btn btn-h">创建</div>
+			<div class="wt-btn btn-normal reset-form">清除</div>
+		</div>
+	</form>
+	<form action="" class="invite-colleague hidden">
+		<div class="form-head">
+			<div class="wt-modal-close"></div>
+			<div class="title">邀请同事加入</div>
+		</div>
+		<div class="form-bd">
+			<div class="notice">
+				<span></span>提示：您可以通过手机号码或者邮箱邀请同事加入，也可以点击<b class="pointer">复制链接</b>
+				把链接发给同事，邀请同事加入。
+			</div>
+			<ul>
+				<li>
+					<label for="">姓名</label> <input type="" name="" id="" value="" placeholder="请输入姓名" />
+					<label for="">联系方式</label> <input type="" name="" id="" value="" placeholder="请输入邮箱或手机号"/>
+				</li>
+				<li>
+					<label for="">姓名</label> <input type="" name="" id="" value="" placeholder="请输入姓名" />
+					<label for="">联系方式</label> <input type="" name="" id="" value="" placeholder="请输入邮箱或手机号"/>
+				</li>
+				<li>
+					<label for="">姓名</label> <input type="" name="" id="" value="" placeholder="请输入姓名" />
+					<label for="">联系方式</label> <input type="" name="" id="" value="" placeholder="请输入邮箱或手机号"/>
+				</li>
+				<li>
+					<label for="">姓名</label> <input type="" name="" id="" value="" placeholder="请输入姓名" />
+					<label for="">联系方式</label> <input type="" name="" id="" value="" placeholder="请输入邮箱或手机号"/>
+				</li>
+			</ul>
+			<span class="add-line pointer">添加</span>
+		</div>
+		<div class="form-foot clearfix">
+			<div class="wt-btn btn-h">邀请</div>
+			<div class="wt-btn btn-normal reset-form">清空</div>
+		</div>
+	</form>
+</div>

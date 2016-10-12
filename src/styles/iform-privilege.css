@@ -1,0 +1,45 @@
+#iform_container {
+	background: #fff;
+	overflow: scroll;
+	height: 100%;
+}
+
+#iform_container .row-submit-fixed {
+	position: static;
+}
+#iform_container .btn-success,
+#iform_container .btn-primary{
+	border: 1px solid #c7c9cf;
+	background: transparent;
+}
+#iform_container .btn-success{
+	color:#232A34;
+}
+#iform_container .btn-success:hover{
+	background: #ededed;
+	font-weight: normal;
+}
+#iform_container .btn-primary{
+	border-color: 1px solid #eb2a38;
+	background: #eb2a38;
+}
+#iform_container .btn-primary:hover{
+	background: #F33D4A;
+	border-color: #eb2a38;
+}
+#iform_container .row{
+	margin: 0;
+}
+#iform_container .container,
+#iform_container .row>.col-md-12{
+	padding: 0;
+}
+#iform_container{
+	padding-top: 20px;
+}
+#iform_container .input-group-addon{
+	border-left: 1px;
+}
+#iform_container .panel-success > .panel-heading{
+	background: ##232a34;
+}

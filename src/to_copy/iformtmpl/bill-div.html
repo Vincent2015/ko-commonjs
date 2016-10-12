@@ -1,0 +1,154 @@
+  
+<div class="container yfd" ><!-- 只读态加bill-readonly样式 -->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-success">
+				<div class="panel-heading" id="panel-heading" data-bind="css:{'bill-readonly':!isEditable()}">
+					<img src="/iform_web/static/css/rt/img/nav.png" style="vertical-align: text-top;">
+					<span class="panel-title">
+						aa1
+					</span>
+				</div>
+				<div class="workflowpanel">
+					
+				</div>
+				<div class="panel-body panel-body-gray">
+					<div class="row">
+						<div class="col-md-12">
+							<h5></h5>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="cardpanel">
+	<div class="form-tablelayout" componentKey="TableLayout">
+		<table class='table table-bordered'>
+					<tr>
+									<td rowspan="1" colspan="2" style="width:520px;">
+		<fieldset enable="" fieldname="201604121652244trlvrmdHw" class="form-group form-group-sm billitem">
+				<label class="billitem-label " for="201604121652244trlvrmdHw" style="color:">
+					<div class="billitem-label-content">
+						文本输入框
+					</div>
+				</label>
+			<!-- 	 -->
+			<div class="input-group date form_date large ">
+				<input type="text" style="border-color:" class="form-control" data-bind="visible:isEditable()" id="201604121652244trlvrmdHw" name="201604121652244trlvrmdHw" u-meta='{"type":"string", "data":"headform", "field":"201604121652244trlvrmdHw"}' placeholder="请输入文本内容">
+			</div>
+		</fieldset>
+									</td>
+									<td rowspan="1" colspan="1" style="width:271px;">
+		<fieldset enable="" fieldname="20160412165242WMPe6E9MwO" class="form-group form-group-sm billitem">
+				<label class="billitem-label " for="20160412165242WMPe6E9MwO" style="color:">
+					<div class="billitem-label-content">
+						日期
+					</div>
+				</label>
+			<!--  -->
+			<div class="input-group date form_date " u-meta='{"type":"date","data":"headform", "field":"20160412165242WMPe6E9MwO","format":"YYYY-MM-DD","trueValue":""}'>
+					<input id="20160412165242WMPe6E9MwO"  style="border-color:" name="20160412165242WMPe6E9MwO" type="text" value="" class="form-control form-control-show-border" placeholder="请选择日期">
+				<span class="input-group-addon input-group-addon-show"><span class="fa fa-calendar"></span></span>
+			</div>
+		</fieldset>
+									</td>
+					</tr>
+					<tr>
+									<td rowspan="3" colspan="1" style="width:270px;">
+		<fieldset enable="" fieldname="20160412165231AdwHZJVRbw" class="form-group billitem form-group-sm billitem-textarea">
+				<div class="item-ta-lab-wrap">
+					<label class="billitem-label " for="20160412165231AdwHZJVRbw" style="color:">
+						<div class="billitem-label-content">
+							多行文本框
+						</div>
+					</label>
+				</div>
+			<!--  -->
+			<div class="input-group date form_date large ">
+				<textarea class="form-control" style="border-color:" id="20160412165231AdwHZJVRbw" name="20160412165231AdwHZJVRbw" u-meta='{"type":"textarea","data":"headform", "field":"20160412165231AdwHZJVRbw"}' placeholder="请输入文本内容"></textarea>
+			</div>
+			
+		</fieldset>
+									</td>
+									<td rowspan="1" colspan="1" style="width:270px;">
+		<fieldset enable="" fieldname="20160412165254gX2JgRJQB0" class="form-group form-group-sm billitem">
+					<label class="billitem-label " for="20160412165254gX2JgRJQB0">
+						<div class="billitem-label-content" style="color:">
+							金额
+						</div>
+					</label>
+				<!--  -->
+				<div class="input-group date form_date  large">
+				        <input class="form-control form-control-show-border fl text-right" maxlength="10" style="border-color:" datatype="f" errormsg="" u-meta='{"type":"money","data":"headform", "field":"20160412165254gX2JgRJQB0"}' type="text"  id="20160412165254gX2JgRJQB0" name="20160412165254gX2JgRJQB0" contenteditable="true" placeholder="请输入金额">
+					<span class="input-group-addon input-group-addon-show" style="color:">(人民币)</span>
+			   </div>
+		</fieldset>
+									</td>
+									<td rowspan="1" colspan="1" style="width:271px;">
+		<fieldset enable="" fieldname="660677964" class="form-group form-group-sm billitem">
+				<label class="billitem-label " for="660677964" style="color:">
+					<div class="billitem-label-content">
+						参照
+					</div>
+				</label>
+			<!--  -->
+			<div class="input-group date form_date " u-meta='{"type":"ncRefer", "data":"headform", "field":"660677964"}' >
+				<input id="660677964" type="text" style="border-color:" class="form-control form-control-show-border ac_input " placeholder="请选择参照" />
+				<span class="input-group-addon input-group-addon-show widgetMark"><span class="fa fa-angle-down"></span></span>
+			</div>
+		</fieldset>
+									</td>
+					</tr>
+					<tr>
+									<td rowspan="1" colspan="1" style="width:270px;">
+		<fieldset enable="" fieldname="20160412165327OH8yuBiqgT" class="form-group form-group-sm billitem">
+				<label class="billitem-label " for="20160412165327OH8yuBiqgT" style="color:">
+					<div class="billitem-label-content">
+						电话
+					</div>
+				</label>
+		<!-- 	 -->
+		<div class="input-group date form_date large ">
+			<input type="text" class="form-control divinput" style="border-color:" id="20160412165327OH8yuBiqgT" name="20160412165327OH8yuBiqgT" placeholder="请输入电话"  datatype="n" errormsg="请输入数值" u-meta='{"type":"integer","data":"headform", "field":"20160412165327OH8yuBiqgT"}'>
+		</div>
+		</fieldset>
+									</td>
+									<td rowspan="1" colspan="1" style="width:271px;">
+		<fieldset enable="" fieldname="20160412165334O9YY6BpVRf" class="form-group form-group-sm billitem">
+				<label class="billitem-label " for="20160412165334O9YY6BpVRf" style="color:">
+					<div class="billitem-label-content">
+						邮箱
+					</div>
+				</label>
+			<!--  -->
+			<div class="input-group date form_date large ">
+                <input type="type" class="form-control" style="border-color:" datatype="e" id="20160412165334O9YY6BpVRf" name="20160412165334O9YY6BpVRf" placeholder="请输入邮箱"  datatype="n" errormsg="邮箱格式错误" u-meta='{"type":"string","data":"headform", "field":"20160412165334O9YY6BpVRf"}'/>
+			</div>
+		</fieldset>
+									</td>
+					</tr>
+					<tr>
+									<td rowspan="1" colspan="1" style="width:270px;">
+									</td>
+									<td rowspan="1" colspan="1" style="width:271px;">
+									</td>
+					</tr>
+		</table>
+	</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="editBtn" data-bind="css:{'bill-readonly':!isEditable()}">
+					<div class="row submit-container">
+						<div class="row-fluid clearfix row-submit-fixed row-submit">
+							<a id = "bfDelete" class="btn btn-primary bill-submit-btn bill-submit-btn-cancel" style='display:none' data-bind="click:del">删除</a>
+							<a id = "bfSave" class="btn btn-primary bill-submit-btn bill-submit-btn-save" data-bind="click:save">保存</a>
+							<a id = "bfNoEdit" class="btn btn-success bill-submit-btn bill-submit-btn-cancel" data-bind="click:cancel">取消</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

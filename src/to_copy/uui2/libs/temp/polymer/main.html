@@ -1,0 +1,16 @@
+<!-- Define element -->
+<polymer-element name="my-main" >
+  <template>
+  	<div id="">
+  		{{value1}}
+  	</div>
+  </template>
+  <script>
+    Polymer({
+      query: function(value) {
+       this.value1 = value
+      }
+    });
+  </script>
+</polymer-element>
+

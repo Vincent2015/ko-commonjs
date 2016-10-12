@@ -1,0 +1,17 @@
+﻿<div id="im-message-app" ng-controller="mainCtrl">
+	<div imopenurl  ng-click="handleClick($event);" style="height: 100%;">
+		<div id="container">
+			<toaster-container toaster-options="{'close-button':{ 'toast-warning': true, 'toast-error': false },'position-class':'toast-top-center' }"></toaster-container>
+			<div ui-view id="IMChat-menu-pannel" class="IMChat-Home-info"></div>
+			
+			<div class="IMChat-model-cover hidden"></div>
+			
+			<div ng-include="'message/angular/template/user-info.htm'"></div>
+			<div ng-include="'message/angular/template/new-group-chat.htm'"></div>
+			
+			<div id="whiteBoradCover" class="hidden">
+				<div id="close_cur_whbd_twin" ng-click="closeWhiteBoard($event)"></div>
+			</div>
+		</div>
+	</div>
+</div>

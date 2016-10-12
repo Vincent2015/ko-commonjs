@@ -1,0 +1,339 @@
+    <div class="content_bar hidden">
+         <span class="p_btn gr">
+            <img src="../../../static/images/plus.png">
+             <label for="doc_local">添加任务</label>
+         </span>
+          
+    </div>
+    <script id="unstarted" type="text/x-dot-template">
+       {{if( it && it.length>0 ){ }}
+
+            {{for(var i=0; i<it.length; i++){ }}
+
+            <li tid={{=it[i].id}}>
+                 
+                 {{if( it && it[i].priority==0 ){ }}
+             
+                  <span class="cl1 l">
+                  {{ } }}
+                
+                  {{if( it && it[i].priority==1 ){ }}
+             
+                  <span class="cl1 m">
+                  {{ } }}
+
+                   {{if( it && it[i].priority==2 ){ }}
+             
+                  <span class="cl1 h">
+                  {{ } }}
+                  	<span>
+    					普通
+    				</span>
+    				<span>
+    					{{=it[i].name}}
+    				</span>
+    				{{if(it[i].planEnddate){ }}
+    				<span>
+    					
+    				{{ }else{ }}
+    				 <span class="hidden">
+    				{{ } }}
+    				{{=it[i].planEnddate}}
+    				</span>
+                  </span>
+                  
+                  
+                 
+                 {{if( it && it[i].ok==1 ){ }}
+                <span class="cl3"  onclick="">开始</span>
+                 {{ } }}
+
+                 {{if( it && it[i].ok!==1 ){ }}
+                <span class="cl3" style="visibility: hidden;" onclick="">开始</span>
+                 {{ } }}
+
+                  <span class="cl2 l">普通</span>
+            </li>
+
+            {{ } }}
+
+        {{ }else{ }}
+
+            <li>没有数据。</li>
+
+           {{ } }}
+    </script>
+
+    <script id="ongoing" type="text/x-dot-template">
+         {{if( it && it.length>0 ){ }}
+
+            {{for(var i=0; i<it.length; i++){ }}
+
+            <li tid={{=it[i].id}}>
+            
+                 {{if( it && it[i].priority==0 ){ }}
+             
+                  <span class="cl1 l">
+                  {{ } }}
+                
+                  {{if( it && it[i].priority==1 ){ }}
+             
+                  <span class="cl1 m">
+                  {{ } }}
+
+                   {{if( it && it[i].priority==2 ){ }}
+             
+                  <span class="cl1 h">
+                  {{ } }}
+                  {{=it[i].name}}</span>
+                
+                <span class="cl3"><input type="checkbox" id="ongoing_{{=i}}" ><label for="ongoing_{{=i}}">完成</label></span>
+            
+                 {{if( it && it[i].priority==0 ){ }}
+             
+                  <span class="cl2 l">普通</span>
+                  {{ } }}
+                
+                  {{if( it && it[i].priority==1 ){ }}
+             
+                  <span class="cl2 m">紧急</span>
+                  {{ } }}
+
+                   {{if( it && it[i].priority==2 ){ }}
+             
+                  <span class="cl2 h">非常紧急</span>
+                  {{ } }}
+            </li>
+
+            {{ } }}
+
+        {{ }else{ }}
+
+            <li>没有数据。</li>
+
+           {{ } }}
+    </script>
+
+    <script id="finished" type="text/x-dot-template">
+        {{if( it && it.length>0 ){ }}
+
+            {{for(var i=0; i<it.length; i++){ }}
+
+            <li tid={{=it[i].id}}>
+                <span class="cl1">{{=it[i].name}}</span>
+                <span class="cl2">重新开始</span>
+            </li>
+           
+        {{ } }}
+
+         {{ }else{ }}
+
+            <li>没有数据。</li>
+
+         {{ } }}
+    </script>
+    <div class="col_container">
+	    <div class="col_task" id="unstarted_task">
+	    	<p><i>未开始(0)</i><img src="../../../static/images/task_begin.png"></p>
+	    	<ul>
+	    		<!-- <li>
+	    			<span class="cl1 l">
+	    				<span>
+	    					普通
+	    				</span>
+	    				<span>
+	    					前端搭建
+	    				</span>
+	    				<span>
+	    					今天18:00
+	    				</span>
+	    			</span>
+	    			
+	
+	    			<span class="cl3">
+	    			
+	    				开始
+	    			</span>
+	
+	                <span class="cl2 l">
+	                  
+	                    普通
+	                </span>
+	    			
+	    		</li>
+	    		<li>
+	    			<span class="cl1 m">
+	    				<span>
+	    					普通
+	    				</span>
+	    				<span>
+		    				网站UE设计
+	    				</span>
+	    				<span>
+	    					今天18:00
+	    				</span>
+	    			</span>
+	    			
+	    			
+	    			<span class="cl3">
+	    				
+	    				开始
+	    			</span>
+	    			<span class="cl2 m">
+	                   
+	                    紧急
+	                </span>
+	    		</li>
+	    		<li>
+	    			<span class="cl1 h">
+	    				<span>
+	    					普通
+	    				</span>
+	    				<span>
+		    				Portal系统
+	    				</span>
+	    				<span>
+	    					今天18:00
+	    				</span>
+	    			</span>    			
+	
+	    			<span class="cl3">
+	    				
+	    				开始
+	    			</span>
+	    			<span class="cl2 h">
+	                  
+	                    非常紧急
+	                </span>
+	    		</li>  
+	            <li>
+	                <span class="cl1 l">
+	                    前端搭建
+	                </span>
+	                
+	
+	                <span class="cl3">
+	                
+	                    开始
+	                </span>
+	
+	                <span class="cl2 l">
+	                   
+	                    普通
+	                </span>
+	                
+	            </li>
+	            <li>
+	                <span class="cl1 m">
+	                    网站UE设计
+	                </span>
+	                
+	                
+	                <span class="cl3">
+	                    
+	                    开始
+	                </span>
+	                <span class="cl2 m">
+	                  
+	                    紧急
+	                </span>
+	            </li> -->
+	            <!-- <li>
+	                <span class="cl1">
+	                    Portal系统
+	                </span>             
+	
+	                <span class="cl3">
+	                    <input type="checkbox" >
+	                    开始
+	                </span>
+	                <span class="cl2 h">
+	                    
+	                    非常紧急
+	                </span>
+	            </li>  -->  		
+	    	</ul>
+	        <div class="new-task-btn pointer"><img src="../../../static/images/task_add.png"><span>添加任务</span></div> 
+	    </div>
+	    <div class="col_task" id="ongoing_task">
+	    	<p><i>进行中(0)</i><img src="../../../static/images/task_runing.png"></p>
+	    	<ul>
+	    		<!-- <li>
+	    			<span class="cl1 l">
+	    				BUG修改
+	    			</span>
+	    			
+	
+	    			<span class="cl3 b">
+	    				<input type="checkbox" >
+	    				完成
+	    			</span>
+	
+	                 <span class="cl2 m">
+	                   
+	                    紧急
+	                </span>
+	    			
+	    		</li>
+	    		<li>
+	    			<span class="cl1 h">
+	    				需求细化
+	    			</span>
+	    			
+	    			
+	    			<span class="cl3 b">
+	    				<input type="checkbox"  >
+	    				完成
+	    			</span>
+	    			 <span class="cl2 l">
+	                  
+	                    普通
+	                </span>
+	    		</li>
+	    		<li>
+	    			<span class="cl1 m">
+	    				后台搭建
+	    			</span>
+	    			
+		    			
+	    			<span class="cl3 b">
+	    				<input type="checkbox"  >
+	    				完成
+	    			</span>
+	    			
+	                 <span class="cl2 h">
+	                   
+	                    非常紧急
+	                </span>
+	    		</li> -->
+		    		
+	    	</ul>
+	
+	    </div>
+	    <div class="col_task" id="finished_task">
+	    	<p><i>已完成(0)</i><img src="../../../static/images/task_over.png"></p>
+	    	<ul>
+	    		<!-- <li>
+	    			<span class="cl1">
+	    				需求调研
+	    			</span>
+	    			<span class="cl2">重新开始</span>
+	    			
+	    		</li>
+	    		<li>
+	    			<span class="cl1">
+	    				问题汇总
+	    			</span>
+	    			<span class="cl2">重新开始</span>
+	    			
+	    		</li>
+	    		<li>
+	    			<span class="cl1">
+	    				用户反馈
+	    			</span>
+	    			<span class="cl2">重新开始</span>
+	    			
+	    		</li> -->
+	    	</ul>
+	    </div>
+    </div>

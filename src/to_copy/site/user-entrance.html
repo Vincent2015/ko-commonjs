@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body style="padding: 0;">
+		<div class="entrance-page">
+			<div class="logo page-section">
+				<img src="img/homepage/logo1.png" alt="worktime-logo" />
+				<span class="vert-line"></span>
+				<span>用户登录</span>
+			</div>
+			<div class="banner clearfix">
+				<div class="page-section">
+
+					<form action="" class="login-form">
+						<div class="usr-tab clearfix">
+							<div class="cur">用户登录</div>
+							<div>用户注册</div>
+						</div>
+						<div class="form-bd">
+							<input type="text" name="username" id="username" value="" placeholder="请输入手机 / 邮箱/用户ID" />
+							<input type="password" name="password" id="password" placeholder="请输入密码" />
+							<input type="text" class="" name="vali_input" id="vali_input" value="empty" />
+							<div class="clearfix pwd-act">
+								<div class="fl"><input type="checkbox" name="" id="rem_pwd" value="" /><label for="rem_pwd"><span></span>记住密码</label></div>
+								<div class="fr">找回账号或密码</div>
+							</div>
+							<div class="login-btn"><input type="submit" value="登录"></div>
+							<!--<div class="login-btn">登录</div>-->
+						</div>
+					</form>
+					<img src="img/working.png" alt="work-pic" />
+				</div>
+			</div>
+			<div class="copy-right">
+				版权所有：用友网络科技股份有限公司 2015 京ICP备05007539号-7 京ICP证100714号 京公网安备1101080209224
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$.validator.setDefaults({
+				    submitHandler: function() {
+				     location.href="/home.html";
+				    }
+				});
+				jQuery.validator.addMethod("checkpwd", function(value, element,params) {
+				    var deferred = $.Deferred();//创建一个延迟对象
+				    $.ajax({
+				        url:"/service/login/userinfo",
+				        type:'post',
+				        dataType:"json",
+				        data:JSON.stringify({name:$('#username').val(),password:$('#password').val()}),
+					    contentType:false,
+					    async:false,
+				        success:function(data) {
+				            if (data.success) {
+				            	document.cookie="authToken="+data.token+";path=/;";//data.authToken;
+				                deferred.resolve();    
+				            } else {
+				                deferred.reject();
+				            }
+				        },
+				        error:function(data){
+				        	console.log(data);
+			                deferred.reject();
+				        	
+				        }
+				    });
+			   		 return deferred.state() == "resolved" ? true : false;
+				}, "用户名或密码错误！");
+				
+				
+				$('.login-form').validate({
+					rules: {
+						username: "required",
+						password: "required",
+						vali_input: {
+							required:true,
+							checkpwd:''
+						}
+					},
+					messages: {
+						username: "用户名不能为空",
+						password: {required:"密码不能为空"},
+						vali_input: "用户名密码不匹配"
+					},
+					errorElement: "em",
+					//errorContainer: $("#warning, #summary"),
+					errorPlacement: function(error, element) {
+						element.parent('div').prepend(error);
+					},
+					success:function(){
+						console.log(">>>>>>>>>>>>>");
+						return false;
+					}
+				});
+			})
+		$('#password').on('keyup',function(){
+			$('#vali_input').trigger('keyup');//val($(this).val());
+		})
+
+		/*$('.form-bd input').on('keyup',function(){
+			$('.form-bd em').remove();
+		})
+		$('.login-btn').on('click',function(e){
+			var username= $('#username').val(),
+				password = $('#password').val();
+			if(!$.trim(username)){
+				$('.form-bd').prepend('<em class="error">用户名不能为空</em>');
+				return false;
+			}
+			if(!$.trim(password)){
+				$('.form-bd').prepend('<em class="error">密码不能为空</em>');
+				return false;
+			}
+			$.ajax({
+				type:"post",
+//				url:"http://10.1.255.187:8080/service/login/userinfo",
+				url:"/service/login/userinfo",
+				dataType:"json",
+				data:JSON.stringify({name:username,password:password}),
+				contentType:false,
+				async:true,
+				success:function(data){
+					if(!data.success){
+							$('.form-bd').prepend('<em class="error">用户名密码不匹配，请重新登录！</em>');
+							return false;
+					}
+					var date=new Date(); 
+					var expiresMinutes=0.5;//minutes 
+					//将date设置为10天以后的时间 
+					date.setTime(date.getTime()+expiresMinutes*60*1000); 
+					//将userId和userName两个cookie设置为10天后过期 
+					console.log("success....",data);
+//					document.cookie="authToken="+data.token+";expires="+date.toGMTString()+";path=/;";//data.authToken;
+					document.cookie="authToken="+data.token+";path=/;";//data.authToken;
+					location.href="/home.html";
+				},
+				error:function(data){
+					$('.form-bd').prepend('<em class="error">用户名或密码错误，请重新登录！</em>');
+					console.log("error....",data);
+					return false;
+				}
+			});
+			e.stopPropagation();
+			e.preventDefault();
+		})*/
+		</script>
+		<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

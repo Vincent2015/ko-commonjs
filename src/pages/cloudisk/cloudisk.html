@@ -1,0 +1,200 @@
+<div class="project_left" style="">
+          <ul class="project_left_nav">            
+             <li class="active" ptype="personal"><a href="#">我的文档</a></li>
+            <li ptype="department"><a>部门文档</a></li>
+            <li ptype="company"><a>公司文档</a></li>
+          <!--   <li ptype="share"><a>共享给我的</a></li> -->        
+           </ul>
+     </div>
+  
+  <div class="project_right" style="margin-left: 120px;width:calc(100% - 120px) ;border: 1px solid #d7d7d7;border-top:0;" >
+       <header class="project_detail_head" style="padding-right: 20px;overflow: hidden">
+          <!-- <span style="float:left;margin-left: 10px;font-size: 16px;color: #636363;cursor:pointer" id="curfolder" data-id=""><img src="../../static/images/p_back.png" style="vertical-align: middle;position: relative;top:-2px;margin-right:5px;"/><i>我的文档</i></span> -->
+           <ul class="dir">
+             <li> <span style="float:left;margin-left: 10px;font-size: 16px;color: #636363;cursor:pointer" id="" data-id=""><!-- <img src="../../static/images/file_b.png" style="vertical-align: middle;position: relative;top:-2px;margin-right:5px;"/> --><i>我的文档</i></span>
+             </li>
+           </ul>            
+           <span class="file_icon lock" style="display: none">            
+            
+           </span>
+           <span class="file_icon del" style="display: none">            
+            
+           </span>
+           <span class="file_icon down" style="display: none">            
+            
+           </span>
+          <span class="file_btn gr">            
+             <label>新建文件夹</label>
+          </span>
+          <span class="file_btn">
+             <input type="file" name="file_local" id="file_local" style="height: 0;width: 0;outline: none;border:none">
+             <label for="file_local">文件上传</label>
+          </span>
+          <input class="search-doc" placeholder="搜索文件名称">
+          
+       </header>        
+        <div class="line">         
+        </div>
+
+         <div id="project_content" style="padding-left:10px;height: calc(100% - 91px);overflow-y: auto">
+           <ul class="file_list" style="">
+            <!-- <li class="" draggable="true" id='1'>
+              <div class=" file_t folder" ></div>
+               <div class="file_b"><i>公司文档</i><span></span></div>
+             </li> 
+             <li class="" draggable="true" id='2'>
+               <div class="file_t folder"></div>
+               <div class="file_b"><i>公司文档</i><span></span></div>
+             </li>
+              <li class="" draggable="true" id='3'>
+               <div class="file_t folder"></div>
+               <div class="file_b"><i>SASS组文档</i><span></span></div>
+             </li>
+              <li class="sel" draggable="true" id='4'>
+               <div class="file_t folder"></div>
+               <div class="file_b"><i>BASS组文档</i><span></span></div>
+             </li>
+              <li class="" draggable="true" id='5'>
+               <div class="file_t folder"></div>
+               <div class="file_b"><i>前端文档</i><span></span></div>
+             </li>
+              <li class="" draggable="true" id='6'>
+               <div class="file_t folder"></div>
+               <div class="file_b"><i>公司文档</i><span></span></div>
+             </li>
+              <li class="" draggable="true" id='7'>
+               <div class="file_t folder"></div>
+               <div class="file_b"><i>SASS组文档</i><span></span></div>
+             </li>
+              <li class="" draggable="true" id='8'>
+               <div class="file_t folder"></div>
+               <div class="file_b"><i>BASS组文档</i><span></span></div>
+             </li>
+              <li class="" draggable="true" id='9'>
+               <div class="file_t folder"></div>
+               <div class="file_b"><i>前端文档</i><span></span></div>
+             </li>
+              <li class="" draggable="true" id='10'>
+               <div class="file_t"></div>
+               <div class="file_b"><i>公司文档</i><span></span></div>
+             </li>
+            
+             <li class="" draggable="true" id='11'>
+               <div class="file_t"></div>
+               <div class="file_b"><i>协同文档</i><span></span></div>
+             </li>
+              <li class="sel" draggable="true" id='12'>
+               <div class="file_t"></div>
+               <div class="file_b"><i>技术文档</i><span></span></div>
+             </li> -->
+            
+           </ul>
+         </div>
+
+</div>
+<div id="cover" style="position: fixed;z-index: 5000;border:1px dotted #f00"></div>
+  <iframe id="ifile" style="display:none"></iframe>
+<script id="fileInfo" type="text/x-dot-template">
+{{if( it && it.length>0 ){ }}
+
+    {{for(var i=0; i<it.length; i++){ }}
+      <li class="" id={{=it[i].id}} draggable="true" data-url={{=it[i].fileIdentifier}}>
+      {{if(it[i].typeDir){ }}
+        <div class="file_t folder"></div>
+      {{ }else{ }}
+        {{if((it[i].fileType=='ppt')||(it[i].fileType=='pptx') ){ }}
+
+        <div class="file_t file_ppt"></div>
+        
+        {{ }else if((it[i].fileType=='doc') ||(it[i].fileType=='docx')){ }}
+
+        <div class="file_t file_doc"></div>
+
+          {{ }else if((it[i].fileType=='xls')||(it[i].fileType=='xlsx')){ }}
+
+        <div class="file_t file_xls"></div>
+
+        {{ }else if(it[i].fileType=='csv'){ }}
+
+        <div class="file_t file_csv"></div>
+
+        {{ }else if(it[i].fileType=='pdf'){ }}
+
+        <div class="file_t file_pdf"></div>
+
+        {{ }else if(it[i].fileType=='png'){ }}
+
+        <div class="file_t file_png"></div>
+
+        {{ }else if(it[i].fileType=='txt'){ }}
+
+        <div class="file_t file_txt"></div>
+
+        {{ }else if(it[i].fileType=='zip'){ }}
+
+        <div class="file_t file_zip"></div>
+
+        {{ }else if(it[i].fileType=='jpg'){ }}
+
+        <div class="file_t file_jpg"></div>
+
+        {{ }else if(it[i].fileType=='mp3'){ }}
+
+        <div class="file_t file_mp3"></div>
+
+        {{ }else if(it[i].fileType=='avi'){ }}
+
+        <div class="file_t file_avi"></div>
+
+        {{ }else if(it[i].fileType=='css'){ }}
+
+        <div class="file_t file_css"></div>
+
+        {{ }else if(it[i].fileType=='rar'){ }}
+
+        <div class="file_t file_rar"></div>
+
+        {{ }else if(it[i].fileType=='raw'){ }}
+
+        <div class="file_t file_raw"></div>
+
+        {{ }else if(it[i].fileType=='ttf'){ }}
+
+        <div class="file_t file_ttf"></div>
+
+        {{ }else if(it[i].fileType=='wav'){ }}
+
+        <div class="file_t file_wav"></div>
+
+        {{ }else if(it[i].fileType=='mov'){ }}
+
+        <div class="file_t file_mov"></div>
+
+        {{ }else if(it[i].fileType=='eps'){ }}
+
+        <div class="file_t file_eps"></div>
+
+        {{ }else if(it[i].fileType=='eml'){ }}
+
+        <div class="file_t file_eml"></div>
+
+        {{ }else if(it[i].fileType=='html'){ }}
+
+        <div class="file_t file_html"></div>
+
+        {{ }else{ }}
+
+
+         {{ } }}
+
+      {{ } }} 
+      <div class="file_b"><i class="readmode">{{=it[i].name}}</i></div>
+  
+
+    {{ } }}
+
+{{ }else{ }}
+
+{{ } }}     
+</script>
+

@@ -1,0 +1,28 @@
+.msg-toast{
+	position: fixed;
+	width: 282px;
+	left: 50%;
+	margin-left: -151px;
+	color: #fff;
+	border-radius: 2px;
+	padding: 5px 10px;
+	padding-left: 40px;
+	z-index: 2499;
+	background-repeat: no-repeat;
+	background-position: 15px center;
+}
+.msg-toast.suc{
+	background-color: #6eb76d ;
+	background-image: url(../static/images/msg_suc.png);
+	
+}
+.msg-toast.failure{
+	background-color: #cd5b50 ;
+	background-image: url(../static/images/msg_failure.png);
+	
+}
+.msg-toast.remind{
+	background-color: #f8a900 ;
+	background-image: url(../static/images/msg_remind.png);
+	
+}

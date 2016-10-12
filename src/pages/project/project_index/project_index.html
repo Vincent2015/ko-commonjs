@@ -1,0 +1,217 @@
+<!-- <div class="" style="height:100%;padding:0"> -->
+   <!--  <div class="" style="border-right: 1px solid #ffffff;
+    background: white;width:120px;height:100%;" > --><!-- 左侧导航 -->
+       <div class="project_left">
+          <ul class="project_left_nav">            
+            <li class="active" ptype="mine"><a>我的项目</a></li>
+            <li ptype="shared"><a>共享给我</a></li>
+            <li ptype="created"><a>我创建</a></li>
+            <li ptype="closed"><a>已关闭</a></li>
+            <li  ptype="all"><a>全部</a></li>         
+           </ul>
+       </div>
+    <!-- </div> -->
+   
+    <div class="project_right" ><!-- 项目列表 -->
+        <ul  class="project_right_content clearfix">
+            <!--<li>
+               <a class="u-nav-link" href="#/project/detail">
+                  <div class="project_right_content_left pb4">
+                     <em>30%</em>
+                  </div>
+                  <div class="project_right_content_right">
+                     <h3>IME电商项目支持</h3> 
+                     <h4>负责人:宁磊</h4> 
+                  </div>
+               </a>
+            </li>
+
+             <li>
+               <a class="u-nav-link" href="#/project/detail">
+                  <div class="project_right_content_left pb7">
+                     <em>65%</em>
+                  </div>
+                  <div class="project_right_content_right">
+                     <h3>IME电商项目支持</h3> 
+                     <h4>负责人:宁磊</h4> 
+                  </div>
+               </a>
+            </li>
+
+             <li>
+               <a class="u-nav-link" href="#project/detail">
+                  <div class="project_right_content_left pb9">
+                    <em>80%</em>
+                  </div>
+                  <div class="project_right_content_right">
+                     <h3>IME电商项目支持</h3> 
+                     <h4>负责人:宁磊</h4> 
+                  </div>
+               </a>
+            </li>
+
+
+             <li>
+               <a class="u-nav-link" href="#/project/detail">
+                  <div class="project_right_content_left  pb10">
+                    <em>100%</em>
+                  </div>
+                  <div class="project_right_content_right">
+                     <h3>IME电商项目支持</h3> 
+                     <h4>负责人:宁磊</h4> 
+                  </div>
+               </a>
+            </li>
+
+             <li>
+               <a class="u-nav-link" href="#/project/detail">
+                  <div class="project_right_content_left pb2">
+                     <em>30%</em>
+                  </div>
+                  <div class="project_right_content_right">
+                     <h3>IME电商项目支持</h3> 
+                     <h4>负责人:宁磊</h4> 
+                  </div>
+               </a>
+            </li>
+
+             <li>
+               <a class="u-nav-link" href="#/project/detail">
+                  <div class="project_right_content_left pb3">
+                     <em>30%</em>
+                  </div>
+                  <div class="project_right_content_right">
+                     <h3>IME电商项目支持</h3> 
+                     <h4>负责人:宁磊</h4> 
+                  </div>
+               </a>
+            </li>
+
+             <li>
+               <a class="u-nav-link" href="#/project/detail">
+                  <div class="project_right_content_left pb5">
+                    <em>30%</em>
+                  </div>
+                  <div class="project_right_content_right">
+                     <h3>IME电商项目支持</h3> 
+                     <h4>负责人:宁磊</h4> 
+                  </div>
+               </a>
+            </li>
+
+
+             <li>
+               <a class="u-nav-link" href="#/project/detail">
+                  <div class="project_right_content_left pb8">
+                    <em>30%</em>
+                  </div>
+                  <div class="project_right_content_right">
+                     <h3>IME电商项目支持</h3> 
+                     <h4>负责人:宁磊</h4> 
+                  </div>
+               </a>
+            </li>
+             <li>
+               <a class="u-nav-link" href="#/project/detail">
+                 <progress value="30" max="100"></progress> 
+                 <div class="progress-bar">
+                    <div class="relative">
+                      <span></span>
+                    </div>
+                  </div>
+                 <h3>IME电商项目支持</h3> 
+                 <h4>负责人:宁磊</h4> 
+               </a>
+            </li>-->
+             
+          
+            <li> 
+              <a class="u-nav-link pointer" id="procreate" >
+                 <p></p>
+                 创建新项目
+              </a>
+                         
+            </li>
+        </ul>
+
+
+
+    </div>
+
+<!-- </div> -->
+
+ <script id="productInfo" type="text/x-dot-template">
+       {{if( it && it.length>0 ){ }}
+
+            {{for(var i=0; i<it.length; i++){ }}           
+            <li><a class="u-nav-link" href="#project/detail/{{=it[i].id}}/{{=it[i].name}}">
+
+             {{if(( it[i].progress>=0 )&&( it[i].progress<=10 )){ }}
+              <div class="project_right_content_left pb1">
+                <em>{{=it[i].progress+'%'}}</em>
+              </div>
+             {{ } }}
+              {{if(( it[i].progress>=11 )&&( it[i].progress<=20 )){ }}
+              <div class="project_right_content_left pb2">
+                <em>{{=it[i].progress +'%'}}</em>
+              </div>
+             {{ } }}
+               {{if(( it[i].progress>=21 )&&( it[i].progress<=30 )){ }}
+              <div class="project_right_content_left pb2">
+                <em>{{=it[i].progress +'%'}}</em>
+              </div>
+             {{ } }}
+
+              {{if(( it[i].progress>=31 )&&( it[i].progress<=40 )){ }}
+              <div class="project_right_content_left pb1">
+                <em>{{=it[i].progress +'%'}}</em>
+              </div>
+             {{ } }}
+              {{if(( it[i].progress>=41 )&&( it[i].progress<=50 )){ }}
+              <div class="project_right_content_left pb2">
+                <em>{{=it[i].progress +'%'}}</em>
+              </div>
+             {{ } }}
+               {{if(( it[i].progress>=51 )&&( it[i].progress<=60 )){ }}
+              <div class="project_right_content_left pb2">
+                <em>{{=it[i].progress +'%'}}</em>
+              </div>
+             {{ } }}
+               {{if(( it[i].progress>=61 )&&( it[i].progress<=70 )){ }}
+              <div class="project_right_content_left pb2">
+                <em>{{=it[i].progress +'%'}}</em>
+              </div>
+             {{ } }}
+
+              {{if(( it[i].progress>=71 )&&( it[i].progress<=80 )){ }}
+              <div class="project_right_content_left pb1">
+                <em>{{=it[i].progress +'%'}}</em>
+              </div>
+             {{ } }}
+              {{if(( it[i].progress>=81 )&&( it[i].progress<=90 )){ }}
+              <div class="project_right_content_left pb2">
+                <em>{{=it[i].progress +'%'}}</em>
+              </div>
+             {{ } }}
+               {{if(( it[i].progress>=91 )&&( it[i].progress<=100 )){ }}
+              <div class="project_right_content_left pb2">
+                <em>{{=it[i].progress +'%'}}</em>
+              </div>
+             {{ } }}
+
+              <div class="project_right_content_right">
+                <h3 title="{{=it[i].name}}">{{=it[i].name}}</h3>
+                <h4>负责人:{{=it[i].master}}</h4>
+              </div>
+            </a>
+            </li>
+
+            {{ } }}
+
+        {{ }else{ }}
+
+            
+
+           {{ } }}
+    </script>
+    <!-- // <li>没有数据。</li> -->

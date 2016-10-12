@@ -1,0 +1,15 @@
+<!-- Define element -->
+<polymer-element name="my-query" attributes="myvalue">
+  <template>
+  	<input type="text" name="" id="" value="{{myvalue}}"/>
+  	<button on-tap="{{doQuery}}">query</button>
+  </template>
+  <script>
+    Polymer({
+      doQuery: function() {
+        document.querySelector('my-main').query(this.myvalue)
+      }
+    });
+  </script>
+</polymer-element>
+
